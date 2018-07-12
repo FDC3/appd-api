@@ -11,7 +11,7 @@ ongoing discussions in the Application Directory FDC3 working group.  The purpos
 * Generate example server stubs for java and nodejs
 * Generate example client binding for java
 
-
+[View it in a nice swagger editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/FDC3/appd-api/master/specification/appd.yaml)
 
 ## Build
 
@@ -27,7 +27,8 @@ Build:
 ## Directory structure
 
 *  **appd-api/specification**:
-    Contains the OpenAPI specification for interfaces and models
+    Contains the OpenAPI specification for interfaces and models.
+    [View it here](https://editor.swagger.io/?url=https://raw.githubusercontent.com/FDC3/appd-api/master/specification/appd.yaml)
 *  **appd-api/appd-java-server-stubs**:
     Contains the generated java server stubs (jaxrs/Jersey2) which the application server implements.  After build, you can reference the stubs using the following dependency.
      ```
