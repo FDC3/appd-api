@@ -1,6 +1,6 @@
 # Application Directory API -- THIS IS NOT A RATIFIED FDC3 API or SPECIFICATION
 
-**This is NOT a ratified API or specification but rather a tool to evaluate both the use cases and technology implmentations.**
+**This is NOT a ratified API or specification but rather a tool to evaluate both the use cases and technology implementations.**
 
 
 ## Overview
