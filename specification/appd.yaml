@@ -105,7 +105,7 @@ definitions:
   Application:
     description: |
       Defines an application retrieved from an FDC3 App Directory, which can then be launched.
-      Launching typically means running for a user on a desktop, but the concepts around laucnhing including
+      Launching typically means running for a user on a desktop, but the concepts around launching including
       who or what might do it, and how the launch action is initiated are discussed elsewhere in the FDC3 App Directory spec.
     required:
       - appId
@@ -116,7 +116,7 @@ definitions:
       appId:
         type: string
         description: |
-          The unique application identifier within located within a specific applicationd directory instance.
+          The unique application identifier located within a specific application directory instance.
 
       name:
         type: string
@@ -135,9 +135,9 @@ definitions:
           The standard values proposed are
           - DesktopExe. Some executable on the desktop. The detailed definitions could allow for Windows and Mac. This would mainly be used for specifying in-house applications
           developed using .Net.
-          - Container. A Web Application detined to run in a container. The Container application type coud include meta data for the various container types that an
+          - Container. A Web Application destined to run in a container. The Container application type could include meta data for the various container types that an
           application vendor may support.
-          - Custom.{Vendor}.{CustomAppType}. Additional private application types can be specified. It reuqires co-ordination between the  launcher and the App Directory instances to
+          - Custom.{Vendor}.{CustomAppType}. Additional private application types can be specified. It requires co-ordination between the  launcher and the App Directory instances to
           allow these values to be used. An example would be to allow Desktop Layouts to be specified in an in-house App Directory Instance
 
       version:
@@ -154,11 +154,11 @@ definitions:
 
       description:
         type: string
-        description: Description of the application. This will typically be a 1-2 paragraph style blurb about the application. Allow mark up langua
+        description: Description of the application. This will typically be a 1-2 paragraph style blurb about the application. Allow mark up language
 
       images:
         type: array
-        description: Array of images to show the user when they are looking at app descritpion. Each image can have an optional description/tooltip
+        description: Array of images to show the user when they are looking at app description. Each image can have an optional description/tooltip
         items:
           $ref: '#/definitions/AppImage'
 
@@ -182,7 +182,7 @@ definitions:
 
       customConfig:
         type: array
-        description: An optional set of name value pairs that can be used to deliver custom data from an App Directroy to a launcher.
+        description: An optional set of name value pairs that can be used to deliver custom data from an App Directory to a launcher.
         items:
           $ref: '#/definitions/NameValuePair'
 
@@ -213,7 +213,7 @@ definitions:
         description: URI to the application, expect to use FILE style URI
       allowMultiple:
         type: boolean
-        description: SHould a launcher create a new instance or try and focus an existing instance
+        description: Should a launcher create a new instance or try and focus an existing instance
   AppBrowser:
     allOf:
       - $ref: '#/definitions/AppType'
@@ -248,7 +248,7 @@ definitions:
         type: array
         description: |
           List of Container specific manifests for the application.
-          Maybe allow a short cut to just have a single manifest for sites with only a single container.
+          Maybe allow a shortcut to just have a single manifest for sites with only a single container.
           The discriminated list is of more use for companies offering an application supported in multiple containers.
         items:
           $ref: '#/definitions/ContainerManifest'
