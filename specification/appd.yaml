@@ -8,6 +8,8 @@ info:
     Application Directory specification (demo) providing both interface
     definition and objects necessary to construct an application directory
     service.
+security:
+- bearerAuth: []
 paths:
   '/v1/apps/{appId}':
     get:
@@ -120,6 +122,11 @@ paths:
 servers:
   - url: /appd
 components:
+  securitySchemes:
+    bearerAuth:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT    # optional, arbitrary value for documentation purposes
   schemas:
     ErrorDTO:
       type: object
