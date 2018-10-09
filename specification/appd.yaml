@@ -147,8 +147,8 @@ components:
       required:
         - appId
         - name
-        - appType
         - appDetails
+        - manifest
       properties:
         appId:
           type: string
@@ -166,32 +166,22 @@ components:
 
             The same appName could occur in other directories. We are not
             currently specifying app name conventions in the document.
-        appType:
+        manifest:
           type: string
           description: >
-            The type of the application. There should be predefined values, the
-            different application types would also have different data fields.
+            URI of the application manifest providing all details related to launch
+            and use requirements as described by the vendor.
 
-            Custom values will also be allowed to enable the use of in-house or
-            3rd party specific values such as layouts to be specified.
+            The format of this manifest is vendor specific, but can be identified by
+            the manifestType attribute.
+        manifestType:
+          type: string
+          description: >
+            The manifest type which relates to the format and structure of the manifest content.
+            The definition is based on the vendor specific format and definition outside of this specification.
 
-            Launchers are expected to ignore applications of a custom type that
-            they do not support.
-
-            The standard values proposed are
-
-            - "DesktopExe". Some executable on the desktop. The detailed
-            definitions could allow for Windows and Mac. This would mainly be
-            used for specifying in-house applications developed using .Net.
-
-            - "Container". A Web Application destined to run in a container. The
-            Container application type could include meta data for the various
-            container types that an application vendor may support.
-
-            - "Custom.{Vendor}.{CustomAppType}". Additional private application
-            types can be specified. It requires co-ordination between the 
-            launcher and the App Directory instances to allow these values to be used. 
-            An possible example would be to allow Desktop Layouts to be stored in an in-house App Directory Instance
+            If this is omitted the generic-fdc3 default will be assumed.
+          default: generic-fdc3
         version:
           type: string
           description: >-
@@ -248,111 +238,8 @@ components:
           description: >
             The list of intents implemented by the Application as defined by
             https://github.com/FDC3/Intents/blob/master/src/Intent.yaml
-
           items:
             $ref: '#/components/schemas/Intent'
-        appDetails:
-          description: Depending on appType, expect to see one of the following for the app details
-          oneOf:
-            - $ref: '#/components/schemas/AppExe'
-            - $ref: '#/components/schemas/AppBrowser'
-            - $ref: '#/components/schemas/AppContainer'
-            - $ref: '#/components/schemas/AppCustom'
-    AppExe:
-      required:
-        - exePath
-      description: Holds data for an appType=Exe
-      properties:
-        exePath:
-          type: string
-          description: 'URI to the application, expect to use FILE style URI'
-        allowMultiple:
-          type: boolean
-          description: >-
-            Should a launcher create a new instance or try and focus an existing
-            instance
-    AppBrowser:
-      required:
-        - url
-      description: >-
-        Holds data for an appType=Browser. It is up to the Launcher to select
-        which Browser to use, typically this will be the default desktop
-        browser.
-      properties:
-        url:
-          type: string
-          description: The URL to display in a browser window.
-        config:
-          type: array
-          description: >-
-            optional set of Config values for displaying the browser, for
-            example select a Kiosk mode. Values need to be 'agreed' between
-            Launcher and App Directrory.
-          items:
-            $ref: '#/components/schemas/NameValuePair'
-    AppContainer:
-      required:
-        - manifests
-      description: Holds data for an appType=Container. This definition allows an application to be specfiied that can run in multiple containers.
-      properties:
-        url:
-          type: string
-          description: >
-            The initial URL of the application. This is optional and may need to be repeated in
-            the container specific manifest.
-
-            We would recommend that Manifests can reference this URL via macros
-        signature:
-          type: string
-          description: >-
-            The domain or public key that the application lives under. For
-            example, the manifest_url would not be able to live under
-            cdn.openfin2.co. Public Key would be a 1:1 ratio to an application
-            but you can have many applications under a domain. Only required if
-            app type is container.
-        manifests:
-          type: array
-          description: >
-            List of Container specific manifests for the application.
-
-            Maybe allow a shortcut to just have a single manifest for sites with
-            only a single container.
-
-            The discriminated list is of more use for companies offering an
-            application supported in multiple containers.
-          items:
-            $ref: '#/components/schemas/ContainerManifest'
-    AppCustom:
-      description: >-
-        Holds data for any other app type, it is assumed that the launcher and
-        app directory will have agreed values to store here, outside the scope
-        of FDC3
-      properties:
-        config:
-          type: array
-          description: >-
-            The set of custom data, I prefer to give this as a list of
-            name/value pairs with the value typically being a JSon object rather
-            than a single value.
-          items:
-            $ref: '#/components/schemas/NameValuePair'
-    ContainerManifest:
-      required:
-        - containerType
-        - manifest
-      properties:
-        containerType:
-          type: string
-          description: >
-            name of the Container, agreed between container vendor and launcher.
-
-            Should we allow companies to register standard container names like
-            OpenFin, Autobahn or Glue42?
-        manifest:
-          type: string
-          description: >
-            The application manifest for the chosen container type.
-
     ApplicationSearchResponse:
       properties:
         applications:
