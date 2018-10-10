@@ -27,9 +27,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>appd-nodejs-server-stubs</artifactId>
-
-
+    <artifactId>appd-typescript-angular-client</artifactId>
     <build>
         <plugins>
 
@@ -45,13 +43,13 @@
                         <configuration>
                             <inputSpec>${project.basedir}/../specification/appd.yaml</inputSpec>
                             <generatorName></generatorName>
-                            <language>nodejs-server</language>
+                            <language>typescript-angular</language>
                             <apiPackage>org.fdc3.appd.server.api</apiPackage>
                             <modelPackage>org.fdc3.appd.server.model</modelPackage>
                             <invokerPackage>org.fdc3.appd.server.invoker</invokerPackage>
 
                             <configOptions>
-                                <sourceFolder>src/main/nodejs</sourceFolder>
+                                <sourceFolder>src/main/typescript-angular</sourceFolder>
 
                             </configOptions>
 

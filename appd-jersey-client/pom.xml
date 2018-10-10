@@ -32,30 +32,35 @@
 
     <build>
         <plugins>
-            <!-- <plugin>
-                 <groupId>io.swagger</groupId>
-                 <artifactId>swagger-codegen-maven-plugin</artifactId>
-                 <executions>
-                 <execution>
-                 <id>YAML to code Generation</id>
-                 <phase>generate-sources</phase>
-                 <goals>
-                 <goal>generate</goal>
-                 </goals>
-                 <configuration>
-                 <inputSpec>${project.basedir}/../specification/appd.yaml</inputSpec>
-                 <apiPackage>org.fdc3.appd.api</apiPackage>
-                 <modelPackage>org.fdc3.appd.model</modelPackage>
-                 <invokerPackage>org.fdc3.appd.invoker</invokerPackage>
-                 <language>java</language>
-                 <library>jersey2</library>
-                 <configOptions>
-                 <dateLibrary>java8</dateLibrary>
-                 </configOptions>
-                 </configuration>
-                 </execution>
-                 </executions>
-                 </plugin> -->
+
+
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/../specification/appd.yaml</inputSpec>
+                            <generatorName></generatorName>
+                            <language>java</language>
+                            <library>jersey2</library>
+                            <apiPackage>org.fdc3.appd.server.api</apiPackage>
+                            <modelPackage>org.fdc3.appd.server.model</modelPackage>
+                            <invokerPackage>org.fdc3.appd.server.invoker</invokerPackage>
+
+                            <configOptions>
+                                <sourceFolder>src/gen/java/main</sourceFolder>
+                                <dateLibrary>java8</dateLibrary>
+                            </configOptions>
+
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

@@ -168,7 +168,7 @@ components:
         manifest:
           type: string
           description: >
-            URI of the application manifest providing all details related to launch
+            URI or full JSON of the application manifest providing all details related to launch
             and use requirements as described by the vendor.
 
             The format of this manifest is vendor specific, but can be identified by

@@ -248,6 +248,7 @@
     <modules>
         <module>appd-jersey-client</module>
         <module>appd-java-server-stubs</module>
-        <!-- <module>appd-nodejs-server-stubs</module> -->
+        <module>appd-nodejs-server-stubs</module>
+        <module>appd-typescript-angular-client</module>
     </modules>
 </project>
