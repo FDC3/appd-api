@@ -148,6 +148,7 @@ components:
         - appId
         - name
         - manifest
+        - manifestType
       properties:
         appId:
           type: string
@@ -178,9 +179,6 @@ components:
           description: >
             The manifest type which relates to the format and structure of the manifest content.
             The definition is based on the vendor specific format and definition outside of this specification.
-
-            If this is omitted the generic-fdc3 default will be assumed.
-          default: generic-fdc3
         version:
           type: string
           description: >-
