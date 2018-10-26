@@ -28,7 +28,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>appd-nodejs-server-stubs</artifactId>
-
+    <packaging>pom</packaging>
 
     <build>
         <plugins>
