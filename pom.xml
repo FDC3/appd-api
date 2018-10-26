@@ -26,6 +26,13 @@
     <artifactId>appd-api</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.finos</groupId>
+        <artifactId>finos</artifactId>
+        <version>1-SNAPSHOT</version>
+    </parent>
+
     <properties>
         <jersey.version>2.26</jersey.version>
         <jackson.version>2.9.4</jackson.version>
@@ -253,4 +260,16 @@
         <module>appd-nodejs-server-stubs</module>
         <module>appd-typescript-angular-client</module>
     </modules>
+
+    <repositories>
+        <repository>
+          <id>ossrh</id>
+          <name>OSSRH Public Group</name>
+          <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+    </repositories>
+
 </project>
