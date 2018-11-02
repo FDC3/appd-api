@@ -49,7 +49,7 @@ deploy:
     skip_cleanup: true
     script: curl https://raw.githubusercontent.com/maoo/FDC3/common-docs-layout/docs/prepare-mvn-docs-release.sh | bash
     on:
-      branch: docs-pages
+      branch: master
   - provider: pages
     skip-cleanup: true
     github-token: $GH_TOKEN
