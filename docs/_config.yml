@@ -18,6 +18,8 @@ collections:
 links:
   - name: Getting Started
     url: /
+  - name: AppD Discovery
+    url: /AppD_Discovery
   - name: API specs
     url: /appd-specification
   - name: FDC3 App Directory Working Group
