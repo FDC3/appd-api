@@ -23,9 +23,41 @@
 language: java
 
 install: true
-script:
-- "mvn clean package deploy"
 
+before_install:
+- npm install -g redoc-cli
+
+cache:
+  directories:
+  - $HOME/.m2
+
+script:
+- mvn clean package install
+- redoc-cli bundle --output ./docs/_includes/appd-specification.html specification/appd.yaml
 
 jdk:
-  - oraclejdk8
+- oraclejdk8
+
+deploy:
+  # TODO - Use Maven Release plugin
+  # - provider: script
+  #   skip_cleanup: true
+  #   script: npm run semantic-release
+  #   on:
+  #     branch: docs-pages
+  - provider: script
+    skip_cleanup: true
+    script: curl https://raw.githubusercontent.com/maoo/FDC3/common-docs-layout/docs/prepare-mvn-docs-release.sh | bash
+    on:
+      branch: docs-pages
+  - provider: pages
+    skip-cleanup: true
+    github-token: $GH_TOKEN
+    email: $GITHUB_EMAIL
+    name: $GITHUB_USERNAME
+    verbose: true
+    keep-history: true
+    local-dir: gh-pages-docs
+    target_branch: gh-pages
+    on:
+      branch: docs-pages
