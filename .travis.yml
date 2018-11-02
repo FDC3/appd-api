@@ -60,4 +60,4 @@ deploy:
     local-dir: gh-pages-docs
     target_branch: gh-pages
     on:
-      branch: docs-pages
+      branch: master
