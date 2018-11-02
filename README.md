@@ -48,4 +48,4 @@ Build:
 
 Please see the [Application Directory POC](https://github.com/FDC3/appd-poc) for an implementation of the specification.
 
-
+*END*
