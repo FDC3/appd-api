@@ -18,7 +18,7 @@ The FDC3 App Directory provides trusted identity for financial desktop apps. Thi
 - Serve as a repository for application metadata supporting discoverability by intent, context, and other workflow driven facets.
 
 
-
+##
 
 
 
