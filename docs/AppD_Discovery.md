@@ -1,6 +1,4 @@
----
-nav-sort: 1
----
+
 
 # AppD Discovery 
 
@@ -63,7 +61,48 @@ Application data discovery shall be accessible through a unique application iden
 
 ```
 
-	`getAppData(``"app@sub.root"``) ` `return``{``   ``"guid"``: 			``"app@sub.root"``,``   ``"id"``:``1``,``   ``"name"``:``"app"``,``   		``"title"``:``"A really cool app"``,``   							``"manifest_url"``:``"https://sub.root/app.json"``,``   				``"description"``:``"An app that provides really cool financial 		data"``,``   ``"contact_email"``:``"info@sub.root"``,``   				``"support_email"``:``"support@sub.root"``,``   						``"signature"``:``"https://sub.root/app"``,``   						``"publisher"``:``"foo"``,``   											``"icon"``:``"https://sub.root/app/img/1525196540430.jpg"``,``   		``"appPage"``:``"/apps/app"``,``   ``"images"``:[``            ``{``              ``"url"``:``"https://sub.root/app/img/1525196540315.png"``            ``}]``}`
+getAppData("app@sub.root")
+
+    Application {
+      "appId": "app@sub.root",
+      "name": "App Name",
+      "manifest": "https://sub.root/app_manifest.json",
+      "manifestType": "vendor_type",
+      "version": "1",
+      "title": "A very cool App",
+      "tooltip": "A very cool app really",
+      "description": "Yes..this is the coolest app ever..",
+      "images": [
+        {
+          "url": "string"
+        }
+      ],
+      "contactEmail": "string",
+      "supportEmail": "string",
+      "publisher": "string",
+      "icons": [
+        {
+          "icon": "string"
+        }
+      ],
+      "customConfig": [
+        {
+          "name": "string",
+          "value": "string"
+        }
+      ],
+      "intents": [
+        {
+          "name": "string",
+          "displayName": "string",
+          "contexts": [
+            "string"
+          ],
+          "customConfig": {}
+        }
+      ]
+    }
+
 
 ```
 
@@ -101,7 +140,7 @@ Another approach to support AppD service discovery (resolution) is through use o
 More specifically, resolution of an AppD service instance (host location) can be implemented using DNS "service records" (SRV) providing the host instance, protocol and associated port.  The following is a well known description of a SRV record ([RFC2782](https://tools.ietf.org/html/rfc2782)):
 
 ```
-`zone name {` `_service._proto.name. TTL ``class` `SRV priority weight port target.` `}`
+    zone name { _service._proto.name. TTL  class  SRV priority weight port target.}
 ```
 
 - *service*: the symbolic name of the desired service.  For AppD service, this mus be identified as "**_appd**"
