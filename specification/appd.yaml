@@ -24,9 +24,9 @@ paths:
         '200':
           description: OK
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/ApplicationSearchResponse'
+                $ref: '#/components/schemas/Application'
         '400':
           description: Bad request.
           content:
