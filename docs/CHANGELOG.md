@@ -8,6 +8,3 @@ Release Date: 11/06/2018</p>
 * First draft issued for review
 
 
-</body>
-</html>
-
