@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 0.0.2
+  version: 1.0.0
   title: NOT RATIFIED - Application Directory specification
   description: >
     --This is NOT a ratified FDC3 specification--

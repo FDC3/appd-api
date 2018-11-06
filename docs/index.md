@@ -1,7 +1,4 @@
----
-nav-sort: 1
----
-# ![fdc3-logo](images/fdc3-logo.png)
+
 
 #  AppD Specification
 
