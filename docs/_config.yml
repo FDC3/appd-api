@@ -18,12 +18,14 @@ collections:
 links:
   - name: Getting Started
     url: /
-  - name: AppD Discovery
+  - name: AppD Discovery (spec)
     url: /AppD_Discovery
+  - name: API (spec)
+    url: /appd-specification
+  - name: ----------------
+    url:
   - name: AppD Use
     url: /AppD_Use
-  - name: API specs
-    url: /appd-specification
   - name: FDC3 App Directory Working Group
     url: https://finosfoundation.atlassian.net/wiki/spaces/FDC3/pages/83918899/App+Directory+Working+Group
     target: _blank
